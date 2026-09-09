@@ -93,6 +93,7 @@
   background: #f8faff;
   display: grid;
   place-items: center;
+  gap: 16px;
   padding: 18px;
 }
 
@@ -103,6 +104,20 @@
   border-radius: 16px;
   background: white;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.download-button {
+  border: none;
+  border-radius: 10px;
+  background: #16a34a;
+  color: white;
+  font-weight: 700;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background: #15803d;
 }
 
 .placeholder {

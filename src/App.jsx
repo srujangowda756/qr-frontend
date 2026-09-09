@@ -44,6 +44,17 @@ function App() {
     }
   };
 
+  const handleDownload = () => {
+    if (!qrImage) return;
+
+    const link = document.createElement("a");
+    link.href = qrImage;
+    link.download = qrImage.split("/").pop() || "qr-code.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <main className="page-shell">
       <section className="generator-card">
@@ -83,7 +94,16 @@ function App() {
 
         <div className="preview-box">
           {qrImage ? (
-            <img src={qrImage} alt="Generated QR code" className="qr-image" />
+            <>
+              <img src={qrImage} alt="Generated QR code" className="qr-image" />
+              <button
+                type="button"
+                className="download-button"
+                onClick={handleDownload}
+              >
+                Download QR
+              </button>
+            </>
           ) : (
             <p className="placeholder">
               Your QR code preview will appear here.
